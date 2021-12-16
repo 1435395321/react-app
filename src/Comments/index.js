@@ -38,7 +38,7 @@ class Comments extends React.Component {
         ],
       ],
       form: {
-        ...this.state.form,
+        // ...this.state.form,
         name: "",
         context: "",
       },
