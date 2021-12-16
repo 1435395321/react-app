@@ -9,5 +9,5 @@ import UseMouse from "./UseMouse";
 
 // const element = <Hello name="wang"></Hello>;
 // const element = <Communication></Communication>;
-const element = <UseMouse />;
+const element = <UseMouse a='12' />;
 ReactDOM.render(element, document.getElementById("root"));

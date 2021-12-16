@@ -3,6 +3,7 @@ import React from "react";
 import mouseImg from "../access/image/wink-.png";
 import withMouse from "../withMouse";
 import "./index.css";
+import { logDOM } from "@testing-library/react";
 // class UseMouse extends React.Component {
 //   render() {
 //     return (
@@ -32,23 +33,25 @@ import "./index.css";
 //   }
 // }
 // 使用高阶组件
-const Position = (props) => (
-  <p>
-    鼠标位置: (x{props.x} --y:{props.y})
-  </p>
-);
+const Position = (props) => {
+  console.log(props);
+  return (<p>
+        鼠标位置: (x{props.x} --y:{props.y}:prop:{props.a})
+      </p>
+  );
+};
 
-const PositionCat = (props) => (
-  <img
-    src={mouseImg}
-    alt="错误的"
-    style={{
-      left: props.x - 25,
-      top: props.y - 25,
-    }}
-  />
-);
+// const PositionCat = (props) => (
+//   <img
+//     src={mouseImg}
+//     alt="错误的"
+//     style={{
+//       left: props.x - 25,
+//       top: props.y - 25,
+//     }}
+//   />
+// );
 
-const UseMouse = withMouse(PositionCat);
+const UseMouse = withMouse(Position);
 
 export default UseMouse;

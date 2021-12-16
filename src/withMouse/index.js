@@ -1,5 +1,6 @@
 import React from "react";
-function withMouse(WrappedCompoent) {
+
+function withMouse(WrappedComponent) {
   class Mouse extends React.Component {
     state = {
       x: 0,
@@ -20,10 +21,15 @@ function withMouse(WrappedCompoent) {
     }
 
     render() {
-      return <WrappedCompoent {...this.state}></WrappedCompoent>;
+      return <WrappedComponent {...this.state}{...this.props} />;
     }
   }
+  // 设置displayName
+  Mouse.displayName = `withMouse${getDisplayName(WrappedComponent)}`;
   return Mouse;
+}
+function getDisplayName(WrappedComponent) {
+  return WrappedComponent.displayName || WrappedComponent.name || "Component";
 }
 
 export default withMouse;
